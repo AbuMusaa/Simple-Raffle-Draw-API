@@ -99,7 +99,7 @@ exports.updateByUsername = (req, res) => {
 
   res.status(200).json({
     status: "success",
-    total: ticket.length,
+    total: tickets.length,
     data: {
       tickets,
     },
@@ -141,12 +141,12 @@ exports.deleteByUsername = (req, res) => {
 // Draw controller
 exports.drawWinners = (req, res) => {
   const winnerCounts = req.query.winnerCounts ?? 3;
-  const winner = ticketCollection.draw(winnerCounts);
+  const winners = ticketCollection.draw(winnerCounts);
 
   res.status(200).json({
     stats: "success",
     data: {
-      winner,
+      winners,
     },
   });
 };

@@ -1,14 +1,67 @@
-GET http://localhost:4000/health
+// health test
+GET http://localhost:3000/health
 
 ###
 
-GET http://localhost:4000/api/v1/tickets
+// get all tickets
+GET http://localhost:3000/api/v1/tickets
 
+// create single ticket
 ### 
-POST http://localhost:4000/api/v1/tickets
+POST http://localhost:3000/api/v1/tickets
 Content-Type: application/json
 
 {
-    username: "abu musa",
-    price: 10
+    "username": "abmusa",
+    "price": 10
 }
+
+// create bulk tickets
+###
+POST http://localhost:3000/api/v1/tickets/bulk
+Content-Type: application/json
+
+{
+    "username": "Abmusa",
+    "price": 10,
+    "quantity": 2
+}
+
+// get ticket by id
+###
+GET http://localhost:3000/api/v1/tickets/t/5LflQf3zY
+
+
+// get tickets by username 
+### 
+GET http://localhost:3000/api/v1/tickets/u/abmusa
+
+// update by id 
+###
+PATCH http://localhost:3000/api/v1/tickets/t/5LflQf3zY
+Content-Type: application/json
+
+{
+    "price": 5
+}
+
+// update by username
+###
+PATCH http://localhost:3000/api/v1/tickets/u/abmusa
+Content-Type: application/json
+
+{
+    "price": 7
+}
+
+// delete by id
+###
+DELETE http://localhost:3000/api/v1/tickets/t/5LflQf3zY
+
+// delete by username
+###
+DELETE http://localhost:3000/api/v1/tickets/u/Abmusa
+
+// Draw
+###
+GET http://localhost:3000/api/v1/tickets/draw?winnerCounts=2

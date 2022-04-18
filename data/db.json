@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "id": "spojxpkt5",
+    "username": "abmusa",
+    "price": 7,
+    "createdAt": "2022-04-18T18:06:29.816Z",
+    "updatedAt": "2022-04-18T18:06:29.816Z"
+  },
+  {
+    "id": "xgsZ3qkSeQ",
+    "username": "Abmusa",
+    "price": 10,
+    "createdAt": "2022-04-18T18:06:47.502Z",
+    "updatedAt": "2022-04-18T18:06:47.502Z"
+  }
+]

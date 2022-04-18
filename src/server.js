@@ -10,6 +10,13 @@ app.use("/api/v1/tickets/", routes);
 
 app.get("/health", (_req, res) => res.status(200).json({ message: "Success" }));
 
+app.all("*", (req, res) => {
+  res.status(404).json({
+    status: "fail",
+    messag: `${req.originalUrl} : This url is not found!`,
+  });
+});
+
 app.use((_req, _res, next) => {
   const error = new Error("Resorce Not Found!");
   error.status = 404;
@@ -28,7 +35,7 @@ app.use((error, _req, res, _next) => {
   });
 });
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log("Server running on port:", port);
 });

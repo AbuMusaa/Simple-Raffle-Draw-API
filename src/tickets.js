@@ -22,7 +22,7 @@ class TicketCollection {
   create(username, price) {
     const ticket = new Ticket(username, price);
     this[tickets].push(ticket);
-    readFile(this[tickets]);
+    writeFile(this[tickets]);
     return ticket;
   }
 
@@ -39,7 +39,7 @@ class TicketCollection {
       const ticket = this.create(username, price);
       result.push(ticket);
     }
-    readFile(this[tickets]);
+    writeFile(this[tickets]);
     return result;
   }
 
@@ -68,10 +68,10 @@ class TicketCollection {
    * @returns {Ticket[]}
    */
   findByUsername(username) {
-    const tickets = this[tickets].filter(
+    const userTickets = this[tickets].filter(
       (ticket) => ticket.username === username
     );
-    return tickets;
+    return userTickets;
   }
 
   /**
@@ -86,7 +86,7 @@ class TicketCollection {
       ticket.username = ticketBody.username ?? ticket.username;
       ticket.price = ticketBody.price ?? ticket.price;
     }
-    readFile(this[tickets]);
+    writeFile(this[tickets]);
     return ticket;
   }
 
@@ -101,7 +101,7 @@ class TicketCollection {
     const updatedTickets = userTickets.map((ticket) => {
       this.updateById(ticket.id, ticketBody);
     });
-    readFile(this[tickets]);
+    writeFile(this[tickets]);
     return updatedTickets;
   }
 
@@ -117,7 +117,7 @@ class TicketCollection {
       return false;
     } else {
       this[tickets].splice(index, 1);
-      readFile(this[tickets]);
+      writeFile(this[tickets]);
       return true;
     }
   }
@@ -132,7 +132,7 @@ class TicketCollection {
     const deletedResult = userTickets.map((ticket) => {
       this.deleteById(ticket.id);
     });
-    readFile(this[tickets]);
+    writeFile(this[tickets]);
     return deletedResult;
   }
 
